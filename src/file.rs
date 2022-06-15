@@ -1,6 +1,8 @@
 use std::fs::{File};
 use std::io::Read;
 
+use crate::string::*;
+
 pub struct FileHandler {
     pub inner: String,
 }
@@ -26,7 +28,7 @@ impl FileHandler {
     pub fn get_split_string(&mut self, file_url: &str) -> Result<Vec<String>, Box<dyn std::error::Error>> {
         let data = self.read_from(file_url)?;
         let data = &data.inner;
-        let split_data: Vec<String> = data.split(' ').map(|d| -> String {d.to_owned()}).collect();
+        let split_data: Vec<String> = split_string::<Vec<String>>(data);
         Ok(split_data)
     }
 }

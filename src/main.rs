@@ -1,4 +1,6 @@
 mod file;
+mod string;
+
 use file::*;
 
 #[tokio::main]
