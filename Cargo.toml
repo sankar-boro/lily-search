@@ -1,0 +1,31 @@
+[package]
+name = "hello"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+members = [
+	"search",
+]
+
+[dependencies]
+# tantivy = "0.18.0"
+# tempfile = "3.3.0"
+anyhow = "1.0.57"
+curl = "0.4.43"
+soup = "0.5.1"
+scylla = "0.3.1"
+env_logger = "0.8"
+log = "0.4"
+async-std = "1.11.0"
+tokio = { version = "1.19.2", features = ["full"] }
+uuid = { version = "0.8", features = ["serde", "v1", "v4"] }
+
+#serializer
+serde = { version = "1.0.132", features = ["derive"] }
+serde_json = "1.0.73"
+jsonwebtoken = "7"
+
+# Local dependencies
+search = { path = "./search"}
