@@ -9,8 +9,10 @@ use string::*;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut file_handler = FileHandler::new();
-    let data: Vec<String> = file_handler.get_split_string("lorem_ipsum.txt").unwrap();
-    let db = ignore_strings(&data);
-    println!("{:?}", db);
+    let data: FileHandler = file_handler.read_from("lorem_ipsum.txt").unwrap();
+    let string_small = &data.inner.to_lowercase();
+    let clean_data = clean_string(&string_small);
+    // let db = ignore_strings(&data.inner);
+    println!("{:?}", clean_data);
     Ok(())    
 }
